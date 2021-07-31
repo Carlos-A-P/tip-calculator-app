@@ -25,6 +25,8 @@ body {
 	padding: 40px 0px;
 	background-color: var(--Light-grayish-cyan);
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 /* logo */
@@ -66,12 +68,11 @@ input.input {
 	width: 100%;
 	height: 38px;
 	border-radius: 5px;
-	margin-bottom: 20px;
-	text-indent: 99%;
+	text-align: right;
 	padding-right: 15px;
 	font-size: 24px;
 	font-weight: 700;
-	color: var(--Very-dark-cyan);
+	color: var(--Dark-grayish-cyan);
 }
 
 .btn-grid {
@@ -88,12 +89,13 @@ input.custom {
 	height: 100%;
 	width: 100%;
 	margin: 0;
-	text-indent: 0;
-	padding-left: 80px;
+	text-align: right;
+	padding-left: 20%;
 }
 
 input.custom::placeholder {
-	margin-left: -50px;
+	opacity: 0.9;
+	color: var(--Darker-grayish-cyan);
 }
 
 /* properly position our buttons 
@@ -128,10 +130,61 @@ input.num-people {
 	background-size: auto 12px;
 }
 /* end of icons */
-div.tip {
+
+/* second container */
+.second-container {
+	background-color: var(--Very-dark-cyan);
+	border-radius: 15px;
+	padding: 30px 15px;
+}
+
+.section-2.header {
+	color: var(--Light-grayish-cyan);
+}
+
+span {
+	color: var(--Dark-grayish-cyan);
+}
+
+div.tip,
+div.input,
+div.num-people {
 	margin-bottom: 20px;
 }
 
+.amount {
+	display: flex;
+	justify-content: space-between;
+}
+
+.tip-amount,
+.total-amount {
+	margin-bottom: 20px;
+}
+
+.tip-result-operand,
+.total-result-operand {
+	font-size: 27px;
+	color: var(--strong-cyan);
+	font-weight: 500;
+}
+
+button.reset-btn {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	padding: 10px 0;
+	cursor: pointer;
+	font-size: 18px;
+	border: none;
+	background-color: var(--strong-cyan);
+	color: var(--Very-dark-cyan);
+	outline: none;
+	border-radius: 5px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+/* end of second container */
 footer {
 	margin-top: auto;
 }
@@ -141,4 +194,62 @@ footer {
 }
 .attribution a {
 	color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 780px) {
+	.logo {
+		width: 70px;
+		margin-bottom: 50px;
+	}
+
+	.calculator {
+		max-width: 800px;
+		height: 400px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: "first-container second-container";
+		grid-gap: 30px;
+		padding: 20px;
+	}
+
+	.section-1.header {
+		margin-bottom: 10px;
+	}
+
+	.btn-grid {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 40px);
+		grid-gap: 10px;
+	}
+
+	input.custom {
+		padding-left: 0px;
+	}
+
+	div.tip,
+	div.input,
+	div.num-people {
+		margin-bottom: 40px;
+	}
+
+	.second-container {
+		display: flex;
+		flex-direction: column;
+		padding: 35px 30px;
+	}
+
+	.tip-result-operand,
+	.total-result-operand {
+		font-size: 36px;
+		font-weight: 700;
+	}
+
+	.tip-amount {
+		margin-bottom: 30px;
+	}
+
+	.reset-btn {
+		margin-top: auto;
+	}
 }
