@@ -10,27 +10,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/0bf304d86b.js" crossorigin="anonymous"></script>
   <title>CPWD | Tip calculator app</title>
 </head>
 <body>
   <main>
+    <div class="logo"><img src="images/logo.svg" alt="logo"></div>
     <div class="calculator">
       <div class="first-container">
         <div class="input">
-          <h1>Bill</h1>
+          <h1 class="section-1 header">Bill</h1>
           <input type="text" class="input bill" id="bill">
         </div>
         <div class="tip">
-          <p>Select Tip %</p>
-          <button data-percentage>5%</button>
-          <button data-percentage>10%</button>
-          <button data-percentage>15%</button>
-          <button data-percentage>25%</button>
-          <button data-percentage>50%</button>
-          <button data-custom class="custom-btn">Custom</button>
+          <p class="section-1 header">Select Tip %</p>
+          <div class="btn-grid">
+            <button data-percentage>5%</button>
+            <button data-percentage>10%</button>
+            <button data-percentage>15%</button>
+            <button data-percentage>25%</button>
+            <button data-percentage>50%</button>
+            <input type="text" class="input custom" id="custom" placeholder="Custom">
+          </div>
         </div>
         <div class="num-people">
-          <p>Number of People</p>
+          <p class="section-1 header">Number of People</p>
           <input type="text" class="input num-people" id="num-people">
         </div>
      
@@ -39,20 +43,20 @@
       <div class="second-container">
         <div class="tip-amount">
           <div class="left">
-            <p>Tip Amount</p>
+            <p class="section-2 header">Tip Amount</p>
             <span>/ person</span>
           </div>
           <div class="right">
-            <div data-tip-result-operand class="tip-result-operand"></div>
+            <div data-tip-result-operand class="tip-result-operand">$4.27</div>
           </div>
         </div>
         <div class="total-amount">
           <div class="left">
-            <p>Total</p>
+            <p class="section-2 header">Total</p>
             <span>/ person</span>
           </div>
           <div class="right">
-            <div data-total-result-operand class="total-result-operand"></div>
+            <div data-total-result-operand class="total-result-operand">$32.79</div>
           </div>
         </div>
         <button data-reset class="reset-btn">Reset</button>
