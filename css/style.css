@@ -58,8 +58,8 @@ body {
 	margin-bottom: 5px;
 }
 
-input.input:focus {
-	outline: none;
+.text {
+	display: flex;
 }
 
 input.input {
@@ -72,6 +72,10 @@ input.input {
 	padding-right: 15px;
 	font-size: 24px;
 	font-weight: 700;
+	color: var(--Very-dark-cyan);
+}
+
+input.input::placeholder {
 	color: var(--Dark-grayish-cyan);
 }
 
@@ -110,8 +114,14 @@ do that by selecting all buttons inside grid*/
 	border-radius: 5px;
 }
 
-.btn-grid > button:hover {
-	color: var(--Darker-grayish-cyan);
+.btn-grid > button:hover,
+button.reset-btn:hover {
+	color: var(--Very-dark-cyan);
+	background-color: var(--Light-grayish-cyan);
+}
+
+.btn-grid > button:focus {
+	color: var(--Very-dark-cyan);
 	background-color: var(--strong-cyan);
 }
 
@@ -184,6 +194,14 @@ button.reset-btn {
 	font-weight: 700;
 	text-transform: uppercase;
 }
+
+button.reset-btn.disabled {
+	opacity: 0.5;
+}
+
+button.reset-btn.disabled:hover {
+	background-color: var(--strong-cyan);
+}
 /* end of second container */
 footer {
 	margin-top: auto;
@@ -196,7 +214,43 @@ footer {
 	color: hsl(228, 45%, 44%);
 }
 
+/* error for inputs */
+
+.input.error input {
+	border: 2px solid red;
+}
+
+small {
+	visibility: hidden;
+}
+
+.input.error small {
+	color: red;
+	font-size: 13px;
+	font-weight: bold;
+	margin-left: auto;
+	visibility: visible;
+}
+
+/* if correct, remove error */
+.input.correct input {
+	border: none;
+}
+
+.input.correct small {
+	visibility: hidden;
+}
+
+input.input:focus {
+	outline: none !important;
+	border: 2px solid var(--strong-cyan);
+	caret-color: var(--strong-cyan);
+}
 @media (min-width: 780px) {
+	body {
+		padding: 100px 0px 20px;
+	}
+
 	.logo {
 		width: 70px;
 		margin-bottom: 50px;
@@ -204,7 +258,6 @@ footer {
 
 	.calculator {
 		max-width: 800px;
-		height: 400px;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
@@ -247,6 +300,10 @@ footer {
 
 	.tip-amount {
 		margin-bottom: 30px;
+	}
+
+	.amount {
+		height: 53px;
 	}
 
 	.reset-btn {
