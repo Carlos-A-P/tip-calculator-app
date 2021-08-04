@@ -16,7 +16,9 @@ percentageButtons.forEach(button => {
         let totalResult
 
         checkInputs(billAmountValue, billAmount, numPeopleValue, numPeople)
-         
+        
+        if(Number(billAmountValue) < 0 || Number(numPeopleValue) < 0) return
+
         switch (tip) {
             case "5%":
                 tipResult = (billAmountValue*0.05)/numPeopleValue
@@ -43,15 +45,13 @@ percentageButtons.forEach(button => {
 })
 
 //check inputs
-function checkInputs(inputValue, input1, inputValue2, input2){
+function checkInputs(inputValue, input1, inputValue2, input2){ 
     if (inputValue === '' || isNaN(parseInt(inputValue))) {
-            
         setErrorFor(input1, 'Please enter a valid number')
     } else if (inputValue === '0') {
         setErrorFor(input1, 'Can\'t be zero')
     } else if(Number(inputValue) < 0){
         setErrorFor(input1, 'Input can\'t be negative')
-        return input1 = infinity
     } else {
         setCorrectFor(input1)
     }
@@ -62,11 +62,10 @@ function checkInputs(inputValue, input1, inputValue2, input2){
         setErrorFor(input2, 'Can\'t be zero')
     } else if(Number(inputValue2) < 0){
         setErrorFor(input2, 'Input can\'t be negative')
-        return input2 = infinity
     } else {
         setCorrectFor(input2)
     }
-    return
+    return inputValue2, inputValue
 }
 
 //error
