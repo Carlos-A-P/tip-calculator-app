@@ -14,22 +14,24 @@ percentageButtons.forEach(button => {
         let tip = button.innerText
         let tipResult
         let totalResult
-        if (billAmountValue === '' || isNaN(parseInt(billAmountValue))) {
-            
-            setErrorFor(billAmount, 'Please enter a valid number')
-        } else if (billAmountValue === '0') {
-            setErrorFor(billAmount, 'Can\'t be zero')
-        } else {
-            setCorrectFor(billAmount)
-        }
 
-        if (numPeopleValue === '' || isNaN(parseInt(numPeopleValue))){
-            setErrorFor(numPeople, 'Please enter a valid number')
-        } else if(numPeople === '0') {
-            setErrorFor(numPeople, 'Can\'t be zero')
-        }else {
-            setCorrectFor(numPeople)
-        }
+        checkInputs(billAmountValue, billAmount, numPeopleValue, numPeople)
+        // if (billAmountValue === '' || isNaN(parseInt(billAmountValue))) {
+            
+        //     setErrorFor(billAmount, 'Please enter a valid number')
+        // } else if (billAmountValue === '0') {
+        //     setErrorFor(billAmount, 'Can\'t be zero')
+        // } else {
+        //     setCorrectFor(billAmount)
+        // }
+        
+        // if (numPeopleValue === '' || isNaN(parseInt(numPeopleValue))){
+        //     setErrorFor(numPeople, 'Please enter a valid number')
+        // } else if(numPeopleValue === '0') {
+        //     setErrorFor(numPeople, 'Can\'t be zero')
+        // }else {
+        //     setCorrectFor(numPeople)
+        // }
     
         
         
@@ -54,8 +56,30 @@ percentageButtons.forEach(button => {
         }
         totalResult = (billAmountValue/numPeopleValue)+tipResult
         displayResults(tipResult, totalResult) 
+        custom.value = ''
     })
 })
+
+//check inputs
+function checkInputs(inputValue, input1, inputValue2, input2){
+    if (inputValue === '' || isNaN(parseInt(inputValue))) {
+            
+        setErrorFor(input1, 'Please enter a valid number')
+    } else if (inputValue === '0') {
+        setErrorFor(input1, 'Can\'t be zero')
+    } else {
+        setCorrectFor(input1)
+    }
+    
+    if (inputValue2 === '' || isNaN(parseInt(inputValue2))){
+        setErrorFor(input2, 'Please enter a valid number')
+    } else if(inputValue2 === '0') {
+        setErrorFor(input2, 'Can\'t be zero')
+    }else {
+        setCorrectFor(input2)
+    }
+    return
+}
 
 //error
 function setErrorFor(input, message){
@@ -98,11 +122,12 @@ function displayResults(x, y){
 //custom tip input
 let custom = document.getElementById('custom')
 custom.addEventListener("keyup", () => {
-    let billAmount = document.getElementById('bill').value
-    let numPeople = document.getElementById('num-people').value
+    let billAmountValue = document.getElementById('bill').value
+    let numPeopleValue = document.getElementById('num-people').value
     let customPercent = custom.value/100
-    let tipResult = (billAmount*customPercent)/numPeople
-    let totalResult = (billAmount/numPeople)+tipResult
+    let tipResult = (billAmountValue*customPercent)/numPeopleValue
+    let totalResult = (billAmountValue/numPeopleValue)+tipResult
+    checkInputs(billAmountValue, billAmount, numPeopleValue, numPeople)
     displayResults(tipResult, totalResult) 
     resetActive()
     if (isNaN(parseInt(customPercent))){
