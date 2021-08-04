@@ -50,7 +50,7 @@ function checkInputs(inputValue, input1, inputValue2, input2){
     } else if (inputValue === '0') {
         setErrorFor(input1, 'Can\'t be zero')
     } else if(Number(inputValue) < 0){
-        setErrorFor(input1, 'Can\'t be negative')
+        setErrorFor(input1, 'Input can\'t be negative')
         return input1 = infinity
     } else {
         setCorrectFor(input1)
@@ -61,7 +61,7 @@ function checkInputs(inputValue, input1, inputValue2, input2){
     } else if(inputValue2 === '0') {
         setErrorFor(input2, 'Can\'t be zero')
     } else if(Number(inputValue2) < 0){
-        setErrorFor(input2, 'Can\'t be negative')
+        setErrorFor(input2, 'Input can\'t be negative')
         return input2 = infinity
     } else {
         setCorrectFor(input2)
