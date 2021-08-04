@@ -19,12 +19,15 @@
     <div class="calculator">
       <div class="first-container">
         <div class="input">
-          <h1 class="section-1 header">Bill</h1>
-          <input type="text" class="input bill" id="bill">
+          <div class="text">
+            <h1 class="section-1 header">Bill</h1>
+            <small>Error Message</small>
+          </div>
+          <input type="text" class="input bill" id="bill" placeholder="0">
         </div>
         <div class="tip">
           <p class="section-1 header">Select Tip %</p>
-          <div class="btn-grid">
+          <div class="btn-grid input">
             <button data-percentage>5%</button>
             <button data-percentage>10%</button>
             <button data-percentage>15%</button>
@@ -33,9 +36,12 @@
             <input type="text" class="input custom" id="custom" placeholder="Custom">
           </div>
         </div>
-        <div class="num-people">
-          <p class="section-1 header">Number of People</p>
-          <input type="text" class="input num-people" id="num-people">
+        <div class="input num-people">
+          <div class="text">
+            <p class="section-1 header">Number of People</p>
+            <small>Error Message</small>
+          </div>
+          <input type="text" class="input num-people" id="num-people"  placeholder="0">
         </div>
      
       
@@ -47,7 +53,7 @@
             <span>/ person</span>
           </div>
           <div class="right">
-            <div data-tip-result-operand class="tip-result-operand"></div>
+            <div id="tip-result-operand" class="tip-result-operand">$0.00</div>
           </div>
         </div>
         <div class="total-amount amount">
@@ -56,10 +62,10 @@
             <span>/ person</span>
           </div>
           <div class="right">
-            <div data-total-result-operand class="total-result-operand"></div>
+            <div id="total-result-operand" class="total-result-operand">$0.00</div>
           </div>
         </div>
-        <button data-reset class="reset-btn">Reset</button>
+        <button class="reset-btn disabled" onclick="reset()" id="reset-button" disabled>Reset</button>
       </div>
     </div>
   </main>
