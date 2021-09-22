@@ -46,7 +46,7 @@ Users should be able to:
 
 This was an extremely fun challenge where I got to practice more javascript functions and understand how to efficiently implement it in my projects. I also used the data attribute to link my grid buttons to my script.js file. I generally reserve the class attribute for my css and my id attributes for JavaScript, however, in this case I had multiple buttons so I used the data attribute. As far as what I learned in CSS, I learned how to used the focus pseudo-class to let the user see the tip percentage they are using.
 
-Here is some code that I wrote in order to complete this task
+- I gave the buttons the same date-percentage attribute so that I can use the forEach method in javascript.
 
 ```HTML
 <div class="btn-grid input">
@@ -59,6 +59,8 @@ Here is some code that I wrote in order to complete this task
 </div>
 
 ```
+
+- after gather all the buttons with the forEach method, I added an event listener to add the button inner text value and pass it into a function and display the outputs in the output divs
 
 ```Javascript
 //percentage buttons
@@ -98,19 +100,6 @@ percentageButtons.forEach(button => {
         custom.value = ''
     })
 })
-```
-
-```CSS
-.btn-grid > button:focus {
-	color: var(--Very-dark-cyan);
-	background-color: var(--strong-cyan);
-}
-
-input.input:focus {
-	outline: none !important;
-	border: 2px solid var(--strong-cyan);
-	caret-color: var(--strong-cyan);
-}
 ```
 
 ### Questions
